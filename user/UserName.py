@@ -13,4 +13,12 @@ class Name(UserInfo.Info):
         if (searchObj == None):
             return None        
         return "match (u:user {name:\"" + searchObj.group(1) +"\"}) return u"
+        #return "'User',name=\""+searchObj.group(1) +"\"}) return u"
 
+'''
+graph = Graph(password='123456')
+selector = NodeMatcher(graph)
+#selector = NodeSelector(graph)
+persons = selector.select('Person', age=21)
+print(list(persons))
+'''

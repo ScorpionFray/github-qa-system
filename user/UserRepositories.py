@@ -13,9 +13,9 @@ class Repositories(UserInfo.Info):
     def getSql(self, inputStr):
         searchObj = re.search( r'(?:repositories|repository).*?([0-9]*?)\?$', inputStr, 0)
         if (searchObj != None and len(searchObj.group(1)) > 0):
-            return "match (u:User {repositories>=" + searchObj.group(1) +"}) return u"
+            return "match (u:user) where u.repositories>=" + searchObj.group(1) +" return u"
 
         searchObj = re.search( r'([0-9]*?)\s* (?:repositories|repository)\?$', inputStr, 0)
         if (searchObj != None and len(searchObj.group(1)) > 0):
-            return "match (u:user {repositories>=" + searchObj.group(1) +"}) return u"
+            return "match (u:user) where u.repositories=" + searchObj.group(1) +" return u"
         return None        

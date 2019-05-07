@@ -12,4 +12,4 @@ class Email(UserInfo.Info):
         searchObj = re.search( r'(?:e-mail|email).*?(?:is|are)\s*(.*?)\?$', inputStr, 0)
         if (searchObj == None):
             return None        
-        return "match (u:user {email:\"" + searchObj.group(1) +"\"}) return u"
+        return "match (u:user {mail:\"" + searchObj.group(1) +"\"}) return u"
